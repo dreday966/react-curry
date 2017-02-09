@@ -1,6 +1,6 @@
 {
   "name": "react-curry",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "react stateless curry",
   "main": "./lib/index.js",
   "scripts": {
@@ -20,5 +20,9 @@
   "dependencies": {
     "lodash": "^4.17.4",
     "react": "^15.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreday966/react-curry"
   }
 }
