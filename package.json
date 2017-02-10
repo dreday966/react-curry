@@ -1,6 +1,6 @@
 {
   "name": "react-curry",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "react stateless curry",
   "main": "./lib/index.js",
   "scripts": {

@@ -54,6 +54,14 @@ const ImgGreenBox = curry(GreenBox, {
 		width: '128px'
 	}
 });
+
+React.render(
+  <div>
+		<TextGreenBox selected={true} innerProps={{text: '西瓜'}}/>
+		<ImgGreenBox selected={true} innerProps={{imgSrc: 'https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'}}/>
+	</div>,
+  document.getElementById('root')
+)
 ```
 
 ## dependencies
