@@ -2,18 +2,23 @@ inspired by curry in functional programming
 
 ## intro
 because react component always contains only one parameter which is props, my curry
-function's work is to deep merge two props.
+function's work is to deep merge props.
 
 ## how to install
 ```
 npm install --save react-curry
 ```
 
-## use case
+## demo
+
+let us make an Original component
+
+```
+
+```
+
 when you want write some similar components.
 
-<img style="width: 100px" src="./water.png"/>
-<img style="width: 100px" src="./google.png"/>
 
 these component show green border when selected
 ```

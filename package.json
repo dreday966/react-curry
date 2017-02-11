@@ -1,7 +1,7 @@
 {
   "name": "react-curry",
-  "version": "1.0.7",
-  "description": "react stateless curry",
+  "version": "1.0.9",
+  "description": "react stateless component curry",
   "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
