@@ -9,64 +9,51 @@ function's work is to deep merge props.
 npm install --save react-curry
 ```
 
-## demo
+## usage
 
-let us make an Original component
-
-```
-
-```
-
-when you want write some similar components.
-
-
-these component show green border when selected
+### use with native element
 ```
 import React from 'react';
 import curry from 'react-curry';
 
-// component which will show green border when pass selected = true
-const GreenBox = ({selected, InnerComponent, innerProps, size}) => (
-	<div 
-		style={{
-			border: selected ? 'solid 2px #1fbd87' : undefined,
-			width: size.width,
-			height: size.height,
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center'
-		}}>
-		{
-			<InnerComponent selected={selected} {...innerProps} />
-		}
-	</div>
+const BlueDiv = curry('div', {style: {backgroundColor: 'blue'}});
+
+// Now you get a blue div component;
+React.render(
+  <BlueDiv>
+    I am a blue div
+  </BlueDiv>,
+  document.getElementById('root')
+);
+```
+
+### use with your component
+
+```
+import React from 'react';
+import curry from 'react-curry';
+
+// let us create a simple component which compose img and span
+const ImageAndText = ({size, text, imgSrc}) => (
+  <div style={{width: size.width, height: size.height}}>
+    <img src={imgSrc}/>
+    <span>{text}</span>
+  </div>
 );
 
-// Green box with inner text
-const TextGreenBox = curry(GreenBox, {
-	InnerComponent: ({text, selected}) => <p style={{color: selected ? '#1fbd87' : '#666666'}}>{text}</p>,
-	size: {
-		height: '42px',
-		width: '123px'
-	}
+// Now you get a size fixed ImageAndText component
+const SqureImageAndText curry(ImageAndText, {
+  size: {
+    width: '100px',
+    height: '100px'
+  }
 });
 
-// Green box with inner img
-const ImgGreenBox = curry(GreenBox, {
-	InnerComponent: ({imgSrc}) => <img src={imgSrc} style={{ width: '100px' }} />,,
-	size: {
-		height: '128px',
-		width: '128px'
-	}
-});
-
+// u can use it;
 React.render(
-  <div>
-		<TextGreenBox selected={true} innerProps={{text: '西瓜'}}/>
-		<ImgGreenBox selected={true} innerProps={{imgSrc: 'https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'}}/>
-	</div>,
+  <SqureImageAndText imgSrc="https://www.google.com.hk/search?safe=strict&site=&q=%E5%85%83%E5%AE%B5%E8%8A%82&oi=ddle&ct=lantern-festival-2017-china-hong-kong-5653647470886912-hp&hl=zh-CN&sa=X&ved=0ahUKEwixx7mn0YfSAhVIoZQKHTzEAR0QPQgE" text="hello world" />,
   document.getElementById('root')
-)
+);
 ```
 
 ## dependencies
