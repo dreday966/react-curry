@@ -8,15 +8,12 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _lodash = require('lodash');
+var _ramda = require('ramda');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (ComponentOrElementName, preProps) {
-
-  return typeof ComponentOrElementName === 'string' ? function (props) {
-    return _react2.default.createElement(ComponentOrElementName, (0, _lodash.merge)(preProps, props));
-  } : function (props) {
-    return _react2.default.createElement(ComponentOrElementName, (0, _lodash.merge)(preProps, props));
+  return function (props) {
+    return typeof ComponentOrElementName === 'string' ? _react2.default.createElement(ComponentOrElementName, (0, _ramda.mergeDeepRight)(preProps, props)) : _react2.default.createElement(ComponentOrElementName, (0, _ramda.mergeDeepRight)(preProps, props));
   };
 };

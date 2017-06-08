@@ -1,9 +1,7 @@
 import React from 'react';
-import { merge } from 'lodash';
+import { mergeDeepRight } from 'ramda';
 
-export default (ComponentOrElementName, preProps) => {
-
-  return (typeof ComponentOrElementName === 'string')
-    ? (props) => React.createElement(ComponentOrElementName, merge(preProps, props))
-    : (props) => <ComponentOrElementName {...merge(preProps, props)} />
-};
+export default (ComponentOrElementName, preProps) => props =>
+  (typeof ComponentOrElementName === 'string')
+    ? React.createElement(ComponentOrElementName, mergeDeepRight(preProps, props))
+    : <ComponentOrElementName {...mergeDeepRight(preProps, props)} />
