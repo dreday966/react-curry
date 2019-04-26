@@ -1,8 +1,16 @@
-inspired by curry in functional programming
+Inspired by curry in functional programming
 
-## intro
-because react component always contains only one parameter which is props, my curry
-function's work is to deep merge props.
+## Idea
+In react, we deal all view elements as components. And these components are like functions which recieves props and return a view (dom or html). props => html. Most of our time is to write some convinient function that have some fixed prop so that we make a new component. For example, I want to make a div whose backgroud is always blue. We may write code like this:
+```
+const BlueDiv = ({style, ...otherProps}) => {
+  <div style={{background: blue, ...style}} {...otherProps}/>
+}
+```
+Now you can just write like below.
+```
+const BlueDiv = curry('div', {style: {backgroundColor: 'blue'}});
+```
 
 ## how to install
 ```
@@ -27,7 +35,7 @@ React.render(
 );
 ```
 
-### use with your component
+### use with your own component
 
 ```
 import React from 'react';
@@ -42,7 +50,7 @@ const ImageAndText = ({size, text, imgSrc}) => (
 );
 
 // Now you get a size fixed ImageAndText component
-const SqureImageAndText curry(ImageAndText, {
+const SqureImageAndText = curry(ImageAndText, {
   size: {
     width: '100px',
     height: '100px'
@@ -57,6 +65,5 @@ React.render(
 ```
 
 ## dependencies
-using lodash merge function, will remove this dependency if stars more than 200
-react
+Now using ramda merge function, will remove this dependency if get more than 50 stars.
 
